@@ -1,6 +1,16 @@
 import Foundation
 
-func alert(#title: String?, #message: String?, #cancelButton: (title: String, action: ()->()), #otherButtons: [(title: String, action: ()->())], #viewController: UIViewController) {
+struct AlertButton {
+    let title: String
+    let action: ()->()
+    
+    init(title: String, action: ()->() = {}) {
+        self.title = title
+        self.action = action
+    }
+}
+
+func alert(#title: String?, #message: String?, #cancelButton: AlertButton, #otherButtons: [AlertButton], #viewController: UIViewController) {
     if !isBeforeiOS("8") {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         let cancelAction = UIAlertAction(title: cancelButton.title, style: .Cancel) { (action: UIAlertAction!) -> Void in
@@ -26,7 +36,7 @@ func alert(#title: String?, #message: String?, #cancelButton: (title: String, ac
     }
 }
 
-func actionSheet(#title: String?, #cancelButton: (title: String, action: ()->()), #otherButtons: [(title: String, action: ()->())], #viewController: UIViewController) {
+func actionSheet(#title: String?, #cancelButton: AlertButton, #otherButtons: [AlertButton], #viewController: UIViewController) {
     if !isBeforeiOS("8") {
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)
         let cancelAction = UIAlertAction(title: cancelButton.title, style: .Cancel) { (action) in

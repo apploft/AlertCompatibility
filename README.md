@@ -20,9 +20,8 @@ Swift:
 
 ```swift
 
-	// a button is a tupel consisting of button title and associated action:
-	let cancelButton = ("Cancel", {})
-	let retryButton = ("Retry", {
+	let cancelButton = AlertButton(title: "Cancel")
+	let retryButton = (title: "Retry", action: {
 		loadData()
 	})
 	
@@ -31,13 +30,13 @@ Swift:
 
 
 
-	let settingButton = ("Settings", {
+	let settingButton = AlertButton(title: "Settings", action: {
 		presentSettingsViewController()
 	})
-	let aboutButton = ("About", {
+	let aboutButton = AlertButton(title: "About", action: {
 		presentAboutViewController()
 	})
-	let logoutButton = ("Logout", {
+	let logoutButton = AlertButton(title: "Logout", action: {
 		logout()
 	})
 	
