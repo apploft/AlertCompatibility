@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "AlertCompatibility"
-  s.version      = "0.1.0"
+  s.version      = "0.2.0"
   s.summary      = "A generic API for displaying an Alert or an ActionSheet that uses the UIAlertController on iOS 8 and UIAlertView or UIActionSheet on iOS 7 and below."
 
   s.description  = <<-DESC

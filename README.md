@@ -36,10 +36,13 @@ Swift:
 	let aboutButton = AlertButton(title: "About", action: {
 		presentAboutViewController()
 	})
+	let deleteButton = AlertButton(title: "Delete All Data", action: {
+		deleteEverything()
+	})
 	let logoutButton = AlertButton(title: "Logout", action: {
 		logout()
 	})
 	
 	// present an action sheet:
-	actionSheet(title: nil, cancelButton: cancelButton, otherButtons: [settingButton, aboutButton, logoutButton], viewController: self)
+	actionSheet(title: "Here you go", cancelButton: cancelButton, destructiveButton: deleteButton, otherButtons: [settingButton, aboutButton, logoutButton], viewController: self)
 ```
