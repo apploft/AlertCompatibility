@@ -70,6 +70,13 @@ func actionSheet(title: String? = nil, cancelButton: AlertButton? = nil, destruc
                 case actionSheet.destructiveButtonIndex:
                     destructiveButton?.action()
                 default:
+                    var buttonIndex = buttonIndex
+                    if (0 <= actionSheet.cancelButtonIndex) && (actionSheet.cancelButtonIndex < buttonIndex) {
+                        buttonIndex--
+                    }
+                    if (0 <= actionSheet.destructiveButtonIndex) && (actionSheet.destructiveButtonIndex < buttonIndex) {
+                        buttonIndex--
+                    }
                     otherButtons[buttonIndex].action()
             }
         })
